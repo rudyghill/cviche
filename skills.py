@@ -1,6 +1,5 @@
 # initialize json
 # TODO: normalize input including case
-# TODO: create an example.csv
 master = []
 import sys
 

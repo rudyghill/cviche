@@ -4,7 +4,9 @@ You have many skills. Your resume/CV is limited in space and attention. Tag your
 Pronounced like "ceviche".
 
 ## For users
-TBD until script becomes more developed.
+```sh
+python3 skills.py example.csv libre
+```
 
 ## For developers
 We use ``black`` for code formatting.
