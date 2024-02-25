@@ -1,9 +1,10 @@
 #initialize json
-#TODO: normalize input including spaces and case
+#TODO: normalize input including case
+#TODO: create an example.csv
 master = []
 with open("skills.csv", "r") as fin:
     for line in fin:
-        skill, score, *tags = line.strip().split(",")
+        skill, score, *tags = line.replace(' ','').strip().split(",")
         master.append(dict(skill=skill, score=int(score), tags=tags))
 
 #import json
