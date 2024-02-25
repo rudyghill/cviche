@@ -1,5 +1,4 @@
 # initialize json
-# TODO: normalize input including case
 master = []
 selected = []
 import sys
@@ -9,7 +8,9 @@ filename = sys.argv[1]
 tag = sys.argv[2]
 with open(filename, "r") as fin:
     for line in fin:
-        skill, *tags = line.replace(" ", "").strip().split(",")
+        skill, *tags = line.strip().split(",")
+        skill = skill.strip()
+        tags = list(map(lambda x:x.strip().lower(),tags))
         master.append(dict(skill=skill, tags=tags))
         if tag in tags:
             selected.append(skill)
