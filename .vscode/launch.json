@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "skills.py example.csv",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceRoot}/skills.py",
+            "console": "integratedTerminal",
+            "args": ["example.csv","libre"]
+        }
+    ]
+}
