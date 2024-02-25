@@ -9,8 +9,8 @@ filename = sys.argv[1]
 tag = sys.argv[2]
 with open(filename, "r") as fin:
     for line in fin:
-        skill, score, *tags = line.replace(" ", "").strip().split(",")
-        master.append(dict(skill=skill, score=int(score), tags=tags))
+        skill, *tags = line.replace(" ", "").strip().split(",")
+        master.append(dict(skill=skill, tags=tags))
         if tag in tags:
             selected.append(skill)
 
