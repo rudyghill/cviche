@@ -1,9 +1,9 @@
+Writer, libre,journalist
+Calc,libre ,accountant
+Impress, libre ,salesman
 Word,microsoft,journalist
-Excel,microsoft,accountant
-Powerpoint,microsoft,salesman
-Pages,apple,journalist
-Numbers,apple,accountant
-Keynote,apple,salesman
-Writer,libre,journalist
-Calc,libre,accountant
-Impress,libre,salesman
+Excel,MICROSOFT,accountant
+Powerpoint,Microsoft,salesman
+Pages, Apple,journalist
+Numbers,apple ,accountant
+Keynote, APPLE ,salesman

@@ -14,8 +14,8 @@ def skills(filename, tag):
     return master, selected
 
 # TODO: safegaurd against no filename
-master, selected = skills(sys.argv[1], sys.argv[2])
-
-print(*selected, sep=",")
+if __name__ == '__main__':
+    master, selected = skills(sys.argv[1], sys.argv[2])
+    print(*selected, sep=",")
 # import json
 # print(json.dumps(master)) #can dump into a json file later
