@@ -1,20 +1,19 @@
 # initialize json
 # TODO: normalize input including case
 master = []
+selected = []
 import sys
 
 # TODO: safegaurd against no filename
 filename = sys.argv[1]
+tag = sys.argv[2]
 with open(filename, "r") as fin:
     for line in fin:
         skill, score, *tags = line.replace(" ", "").strip().split(",")
         master.append(dict(skill=skill, score=int(score), tags=tags))
+        if tag in tags:
+            selected.append(skill)
 
+print(*selected, sep=",")
 # import json
 # print(json.dumps(master)) #can dump into a json file later
-
-# print skills with certain tags
-tag = sys.argv[2]
-for item in master:
-    if tag in item["tags"]:
-        print(item["skill"])
