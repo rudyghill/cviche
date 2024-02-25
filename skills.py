@@ -2,7 +2,11 @@
 # TODO: normalize input including case
 # TODO: create an example.csv
 master = []
-with open("skills.csv", "r") as fin:
+import sys
+
+# TODO: safegaurd against no filename
+filename = sys.argv[1]
+with open(filename, "r") as fin:
     for line in fin:
         skill, score, *tags = line.replace(" ", "").strip().split(",")
         master.append(dict(skill=skill, score=int(score), tags=tags))
