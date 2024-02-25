@@ -2,14 +2,14 @@ import sys
 
 
 def skills(filename, tag):
-    master = []
+    master = {}
     selected = []
     with open(filename, "r") as fin:
         for line in fin:
             skill, *tags = line.strip().split(",")
             skill = skill.strip()
             tags = list(map(lambda x: x.strip().lower(), tags))
-            master.append(dict(skill=skill, tags=tags))
+            master[skill] = tags
             if tag in tags:
                 selected.append(skill)
     return master, selected
