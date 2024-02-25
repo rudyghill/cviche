@@ -15,7 +15,7 @@ with open(filename, "r") as fin:
 # print(json.dumps(master)) #can dump into a json file later
 
 # print skills with certain tags
-tag = "security"
+tag = sys.argv[2]
 for item in master:
     if tag in item["tags"]:
         print(item["skill"])
