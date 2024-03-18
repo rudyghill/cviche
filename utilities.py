@@ -10,6 +10,19 @@ def replace_placeholders(document, replacements):
     return document
 
 
+# TODO: make testing function
+# converts the string value of an object to a python list
+# input table: array of objects where object = {..., "key","string"}
+# input key: see above, key to change
+# output : transformed array of objects
+def reformat_object_string(table, key):
+    reformatted_table = []
+    for line in table:
+        value = line[key].split(",")
+        reformatted_table.append(list(map(lambda x: x.strip(), value)))
+    return reformatted_table
+
+
 def main():
     # Read document from standard input
     document = sys.stdin.read()
