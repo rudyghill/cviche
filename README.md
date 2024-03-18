@@ -4,8 +4,14 @@ You have many skills. Your resume/CV is limited in space and attention. Tag your
 Pronounced like "ceviche".
 
 ## For users
+This is a WIP. Basically notes right now.
 ```sh
 python3 skills.py example.csv libre
+```
+
+For my usage of ``experience.py``:
+```sh
+python3 experience.py example/experience.csv software < example/experience_template.ms
 ```
 ### MacOS
 ```sh

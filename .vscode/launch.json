@@ -8,6 +8,14 @@
             "program": "${workspaceRoot}/skills.py",
             "console": "integratedTerminal",
             "args": ["example.csv","libre"]
+        },
+        {
+            "name": "experience.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceRoot}/experience.py",
+            "console": "integratedTerminal",
+            "args": ["example/experience.csv","software","<","example/experience_template.ms"]
         }
     ]
 }
