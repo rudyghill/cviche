@@ -6,7 +6,7 @@ Pronounced like "ceviche".
 ## For users
 This is a WIP. Basically notes right now.
 ```sh
-python3 skills.py example.csv libre
+python3 skills.py example/skills.csv libre
 ```
 
 For my usage of ``experience.py``:
@@ -15,7 +15,7 @@ python3 experience.py example/experience.csv software < example/experience_templ
 ```
 ### MacOS
 ```sh
-python3 skills.py example.csv libre | pbcopy
+python3 skills.py example/skills.csv libre | pbcopy
 ```
 ### Linux
 ``TODO``

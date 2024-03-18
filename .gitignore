@@ -1,5 +1,4 @@
 *.csv
-!example.csv
 !example/*.csv
 .venv
 __pycache__

@@ -8,17 +8,17 @@ from skills import skills
 class TestSkills(unittest.TestCase):
 
     def test_spacing(self, mock_stdout):
-        master, selected = skills("example.csv", "libre")
+        master, selected = skills("example/skills.csv", "libre")
         print(*selected, sep=", ")
         self.assertEqual(mock_stdout.getvalue(), "Writer, Calc, Impress\n")
 
     def test_case(self, mock_stdout):
-        master, selected = skills("example.csv", "microsoft")
+        master, selected = skills("example/skills.csv", "microsoft")
         print(*selected, sep=", ")
         self.assertEqual(mock_stdout.getvalue(), "Word, Excel, Powerpoint\n")
 
     def test_case_and_spacing(self, mock_stdout):
-        master, selected = skills("example.csv", "apple")
+        master, selected = skills("example/skills.csv", "apple")
         print(*selected, sep=", ")
         self.assertEqual(mock_stdout.getvalue(), "Pages, Numbers, Keynote\n")
 
