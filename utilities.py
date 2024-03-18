@@ -1,12 +1,14 @@
 import re
 import sys
 
+
 def replace_placeholders(document, replacements):
     for placeholder, value in replacements.items():
-        pattern = re.compile(re.escape('{{' + placeholder + '}}'))
+        pattern = re.compile(re.escape("{{" + placeholder + "}}"))
         if type(value) == str:
             document = re.sub(pattern, value, document)
     return document
+
 
 def main():
     # Read document from standard input
@@ -23,6 +25,7 @@ def main():
 
     # Output modified document to standard output
     sys.stdout.write(modified_document)
+
 
 if __name__ == "__main__":
     main()

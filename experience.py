@@ -14,6 +14,7 @@ def experience(filename, tag):
                 selected.append(line)
     return csv_reader, selected
 
+
 def main():
     # Read document from standard input
     template = sys.stdin.read()
@@ -28,6 +29,7 @@ def main():
 
     # Output modified document to standard output
     sys.stdout.write(modified_document)
+
 
 if __name__ == "__main__":
     main()
