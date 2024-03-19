@@ -1,5 +1,6 @@
 import re
 import sys
+import csv
 
 
 # TODO: write test and function description
@@ -21,6 +22,27 @@ def expand_to_list(table, key):
         value = [item.strip() for item in line[key].split(",")]
         line[key] = value
     return reformatted_table
+
+
+# TODO: make test function
+# takes a csv and returns the csv reader, list of objects
+# input filename: name of csv file to read
+# output csv_reader: list of objects
+def csv_to_table(filename):
+    selected = []
+    with open(filename, "r") as fin:
+        csv_reader = csv.DictReader(fin, delimiter=",")
+    return csv_reader
+
+
+# function that takes an list of objects and filters them by a specific key
+# input table: the list of objects
+# input key: the key to filter by
+# input value: the value to filter by
+# output filterd_table: the filtered table
+def filter_by_key(table, key, value):
+    filtered_table = [obj for obj in table if key in obj and obj[key] == value]
+    return filtered_table
 
 
 def main():

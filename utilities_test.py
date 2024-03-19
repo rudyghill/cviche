@@ -29,6 +29,20 @@ class TestUtilites(unittest.TestCase):
         # Assert statements to validate the correctness of the reformatted table
         assert reformatted_table == desired_table, "Test failed!"
 
+    def test_filter_by_key(self):
+        input_table = [
+            {"id": "1", "name": "John Doe"},
+            {"id": "2", "name": "Johnny Appleseed"},
+            {"id": "3", "name": "Joe Smith"},
+        ]
+
+        desired_table = [
+            {"id": "2", "name": "Johnny Appleseed"},
+        ]
+
+        filtered_table = utilities.filter_by_key(input_table, "id", "2")
+        assert filtered_table == desired_table, "Test failed!"
+
 
 if __name__ == "__main__":
     unittest.main()
