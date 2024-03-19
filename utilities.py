@@ -53,11 +53,7 @@ def filter_by_key(table, key, value):
 # input tag: the string to search for in key
 # output selected: list of selected items
 def select_values_with_tag(table, select, key, tag):
-    selected = []
-    for item in table:
-        if tag in item[key].lower():
-            selected.append(item[select])
-    return selected
+    return [item[select] for item in table if tag in item[key].lower()]
 
 
 def main():
