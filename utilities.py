@@ -2,6 +2,7 @@ import re
 import sys
 
 
+# TODO: write test and function description
 def replace_placeholders(document, replacements):
     for placeholder, value in replacements.items():
         pattern = re.compile(re.escape("{{" + placeholder + "}}"))
@@ -10,16 +11,15 @@ def replace_placeholders(document, replacements):
     return document
 
 
-# TODO: make testing function
 # converts the string value of an object to a python list
-# input table: array of objects where object = {..., "key","string"}
+# input table: array of objects where object = {..., "key":"string"}
 # input key: see above, key to change
 # output : transformed array of objects
-def reformat_object_string(table, key):
-    reformatted_table = []
+def expand_to_list(table, key):
+    reformatted_table = table
     for line in table:
-        value = line[key].split(",")
-        reformatted_table.append(list(map(lambda x: x.strip(), value)))
+        value = [item.strip() for item in line[key].split(",")]
+        line[key] = value
     return reformatted_table
 
 
