@@ -46,6 +46,20 @@ def filter_by_key(table, key, value):
     return filtered_table
 
 
+# function that makes a list of items when tags are found
+# input table: the list of objects
+# input select: the field to make a list of
+# input key: the field the key to check
+# input tag: the string to search for in key
+# output selected: list of selected items
+def select_values_with_tag(table, select, key, tag):
+    selected = []
+    for item in table:
+        if tag in item[key].lower():
+            selected.append(item[select])
+    return selected
+
+
 def main():
     # Read document from standard input
     document = sys.stdin.read()

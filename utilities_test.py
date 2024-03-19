@@ -43,6 +43,18 @@ class TestUtilites(unittest.TestCase):
         filtered_table = utilities.filter_by_key(input_table, "id", "2")
         assert filtered_table == desired_table, "Test failed!"
 
+    def test_select_values_with_tag(self):
+        input_table = [
+            {"id": "1", "key": "apple"},
+            {"id": "2", "key": "orange"},
+            {"id": "3", "key": "apple,orange"},
+        ]
+        desired_list = ["1", "3"]
+        filtered_list = utilities.select_values_with_tag(
+            input_table, "id", "key", "apple"
+        )
+        assert filtered_list == desired_list, "Test failed!"
+
 
 if __name__ == "__main__":
     unittest.main()
