@@ -29,10 +29,11 @@ def expand_to_list(table, key):
 # input filename: name of csv file to read
 # output csv_reader: list of objects
 def csv_to_table(filename):
-    selected = []
+
     with open(filename, "r") as fin:
         csv_reader = csv.DictReader(fin, delimiter=",")
-    return csv_reader
+        table = list(csv_reader)
+    return table
 
 
 # function that takes an list of objects and filters them by a specific key
