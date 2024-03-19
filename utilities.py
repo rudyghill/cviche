@@ -17,11 +17,10 @@ def replace_placeholders(document, replacements):
 # input key: see above, key to change
 # output : transformed array of objects
 def expand_to_list(table, key):
-    reformatted_table = table
-    for line in table:
-        value = [item.strip() for item in line[key].split(",")]
-        line[key] = value
-    return reformatted_table
+    return [
+        {**line, key: [item.strip() for item in line[key].split(",")]} 
+        for line in table
+    ]
 
 
 # TODO: make test function
@@ -42,8 +41,7 @@ def csv_to_table(filename):
 # input value: the value to filter by
 # output filterd_table: the filtered table
 def filter_by_key(table, key, value):
-    filtered_table = [obj for obj in table if key in obj and obj[key] == value]
-    return filtered_table
+    return [obj for obj in table if key in obj and obj[key] == value]
 
 
 # function that makes a list of items when tags are found
