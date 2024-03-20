@@ -1,0 +1,26 @@
+name: Python Tests
+
+on:
+  push:
+    branches: [master] # Adjust the branch name as per your requirement
+  pull_request:
+    branches: [master] # Adjust the branch name as per your requirement
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11.5 # Choose your desired Python version
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt # If you have any requirements file
+
+    - name: Run unittests
+      run: python -m unittest discover -s tests -p '*_test.py' # Adjust as per your test directory structure
