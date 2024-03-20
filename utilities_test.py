@@ -3,6 +3,13 @@ import utilities
 
 
 class TestUtilites(unittest.TestCase):
+    def test_replace_placeholders(self):
+        document = "name: {{NAME}}, email: {{EMAIL}}"
+        replacements = {"NAME": "John Doe", "EMAIL": "johndoe@example.com"}
+        output_document = utilities.replace_placeholders(document, replacements)
+        desired_document = "name: John Doe, email: johndoe@example.com"
+        assert output_document == desired_document, "Test failed"
+
     def test_expand_to_list(self):
         # Define a sample input table
         input_table = [

@@ -3,8 +3,35 @@ import sys
 import csv
 
 
-# TODO: write test and function description
+# TODO: make test function
+# takes a csv and returns the csv reader, list of objects
+# input filename: name of csv file to read
+# output csv_reader: list of objects
+def csv_to_table(filename):
+
+    with open(filename, "r") as fin:
+        csv_reader = csv.DictReader(fin, delimiter=",")
+        table = list(csv_reader)
+    return table
+
+
 def replace_placeholders(document, replacements):
+    """
+    Replaces placeholders in a document string with corresponding values.
+
+    Args:
+        document (str): The document string containing placeholders.
+        replacements (dict): A dictionary where keys are placeholders and values are replacements.
+
+    Returns:
+        str: The document string with placeholders replaced by their corresponding values.
+
+    Example:
+        >>> document = "Hello {{name}}, today is {{day}}"
+        >>> replacements = {"name": "Alice", "day": "Monday"}
+        >>> replace_placeholders(document, replacements)
+        'Hello Alice, today is Monday'
+    """
     for placeholder, value in replacements.items():
         pattern = re.compile(re.escape("{{" + placeholder + "}}"))
         if type(value) == str:
@@ -18,21 +45,8 @@ def replace_placeholders(document, replacements):
 # output : transformed array of objects
 def expand_to_list(table, key):
     return [
-        {**line, key: [item.strip() for item in line[key].split(",")]} 
-        for line in table
+        {**line, key: [item.strip() for item in line[key].split(",")]} for line in table
     ]
-
-
-# TODO: make test function
-# takes a csv and returns the csv reader, list of objects
-# input filename: name of csv file to read
-# output csv_reader: list of objects
-def csv_to_table(filename):
-
-    with open(filename, "r") as fin:
-        csv_reader = csv.DictReader(fin, delimiter=",")
-        table = list(csv_reader)
-    return table
 
 
 # function that takes an list of objects and filters them by a specific key
