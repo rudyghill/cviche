@@ -1,21 +1,20 @@
 import re
 import sys
 import csv
-
+from pathlib import Path
 
 # TODO: make test function
 # takes a csv and returns the csv reader, list of objects
 # input filename: name of csv file to read
 # output csv_reader: list of objects
-def csv_to_table(filename):
-
+def csv_to_table(filename: Path):
     with open(filename, "r") as fin:
         csv_reader = csv.DictReader(fin, delimiter=",")
         table = list(csv_reader)
     return table
 
 
-def replace_placeholders(document, replacements):
+def replace_placeholders(document: str, replacements: dict[str, str]) -> str:
     """
     Replaces placeholders in a document string with corresponding values.
 
@@ -36,6 +35,8 @@ def replace_placeholders(document, replacements):
         pattern = re.compile(re.escape("{{" + placeholder + "}}"))
         if type(value) == str:
             document = re.sub(pattern, value, document)
+        else:
+            raise RuntimeError(f"Unexpected {value=}!!")
     return document
 
 
