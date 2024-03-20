@@ -1,12 +1,16 @@
 import argparse
 import utilities
+import sys
 
 # import json
 # print(json.dumps(master)) #can dump into a json file later
 
 
-def experience():
-    return
+def experience(template, csv, tag):
+    master = utilities.csv_to_table(csv)
+    selected = utilities.filter_by_key(master, "tag", tag)
+    replacements = selected[0]
+    return utilities.replace_placeholders(template, replacements)
 
 
 def education():
@@ -32,7 +36,9 @@ def main():
     args = parser.parse_args()
 
     if args.mode == "exp":
-        experience()
+        template = sys.stdin.read()
+        modified_document = experience(template, args.csv, args.tag)
+        sys.stdout.write(modified_document)
     elif args.mode == "edu":
         education()
     elif args.mode == "skl":

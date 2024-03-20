@@ -9,13 +9,13 @@ This is a WIP. Basically notes right now.
 python3 cviche.py -m skl -c example/skills.csv -t libre
 ```
 
-For my usage of ``experience.py``:
+For experience templating
 ```sh
-python3 experience.py example/experience.csv software < example/experience_template.ms
+python3 cviche.py -m exp -c example/experience.csv -t software < example/experience_template.ms
 ```
 ### MacOS
 ```sh
-python3 python3 cviche.py -m skl -c example/skills.csv -t libre | pbcopy
+python3 cviche.py -m skl -c example/skills.csv -t libre | pbcopy
 ```
 ### Linux
 ``TODO``
