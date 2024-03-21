@@ -3,12 +3,7 @@ import utilities
 import sys
 
 from pathlib import Path
-from enum import Enum, auto
 
-class Modes(Enum):
-   exp = auto()
-   edu = auto()
-   skl = auto()
 # import json
 # print(json.dumps(master)) #can dump into a json file later
 
@@ -28,6 +23,7 @@ def skills(filename, tag):
     master = utilities.csv_to_table(filename)
     return utilities.select_values_with_tag(master, "skill", "tags", tag)
 
+
 def _get_arg_parser():
     parser = argparse.ArgumentParser(description="generate a resume")
     parser.add_argument(
@@ -41,14 +37,16 @@ def _get_arg_parser():
     parser.add_argument("-t", "--tag", help="tag to filter on", required=True)
     return parser
 
+
 def from_args(args: dict):
     pass
+
 
 def main():
     parser = _get_arg_parser()
     args = parser.parse_args()
 
-    if args.mode is Modes.exp:
+    if args.mode == "exp":
         template = sys.stdin.read()
         modified_document = experience(template, args.csv, args.tag)
         sys.stdout.write(modified_document)
