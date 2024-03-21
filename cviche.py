@@ -2,11 +2,13 @@ import argparse
 import utilities
 import sys
 
+from pathlib import Path
+
 # import json
 # print(json.dumps(master)) #can dump into a json file later
 
 
-def experience(template, csv, tag):
+def experience(template: Path, csv: Path, tag) -> str:
     master = utilities.csv_to_table(csv)
     selected = utilities.filter_by_key(master, "tag", tag)
     replacements = selected[0]
@@ -22,7 +24,7 @@ def skills(filename, tag):
     return utilities.select_values_with_tag(master, "skill", "tags", tag)
 
 
-def main():
+def _get_arg_parser():
     parser = argparse.ArgumentParser(description="generate a resume")
     parser.add_argument(
         "-m",
@@ -33,6 +35,15 @@ def main():
     )
     parser.add_argument("-c", "--csv", help="csv file to read", required=True)
     parser.add_argument("-t", "--tag", help="tag to filter on", required=True)
+    return parser
+
+
+def from_args(args: dict):
+    pass
+
+
+def main():
+    parser = _get_arg_parser()
     args = parser.parse_args()
 
     if args.mode == "exp":
