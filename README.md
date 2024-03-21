@@ -1,7 +1,7 @@
 # cviche
 You have many skills. Your resume/CV is limited in space and attention. Tag your skills and list them according to the job you are applying.
 
-Pronounced like "ceviche".
+Pronounced like "ceviche". Credit to [Philip Massouh](https://github.com/philipmassouh) for the name.
 
 ## For users
 This is a WIP. Basically notes right now.
