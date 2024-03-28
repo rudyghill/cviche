@@ -6,25 +6,12 @@
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceRoot}/cviche.py",
+            "cwd": "${workspaceFolder}/example/files",
             "console": "integratedTerminal",
             "args": [
-                "-m", "skl",
-                "-c", "example/skills.csv",
-                "-t", "libre"
+                "-t", "hardware",
+                "-y", "config.yaml",
             ]
         },
-        {
-            "name": "experience.py",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "${workspaceRoot}/experience.py",
-            "console": "integratedTerminal",
-            "args": [
-                "example/experience.csv",
-                "software",
-                "<",
-                "example/experience_template.ms"
-            ]
-        }
     ]
 }

@@ -1,0 +1,14 @@
+first: John
+last: Doe
+template: template.ms
+output: output/resume.ms
+sections:
+  experience:
+    template: experience/experience.ms
+    csv: experience/experience.csv
+  education:
+    template: education/education.ms
+    csv: education/education.csv
+  skills:
+    template: skills/skills.ms
+    csv: skills/skills.csv

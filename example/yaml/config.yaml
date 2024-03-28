@@ -1,0 +1,79 @@
+first: John
+last: Doe
+template: resume_template.ms
+output: resume.ms
+sections:
+  - experience:
+    template: experience_template.ms
+    data:
+      - job1:
+        start_date: 2019
+        end_date: present
+        title: Software Engineer
+        company: Pied Piper
+        location: Cupertino,California
+        desc: I did software
+        skills:
+          - Python
+          - C
+          - C++
+        tags:
+          - software
+      - job2:
+        start_date: 2018
+        end_date: 2019
+        title: Hardware Engineer
+        company: Pied Piper
+        location: Austin,Texas
+        desc: I did hardware
+        skills:
+          - PCB
+          - Altium
+          - SPICE
+        tags:
+          - hardware
+  - education:
+    tempalte: education_template.ms
+    data:
+      - degree1:
+        start_date: 2000
+        end_date: 2005
+        institution: The Great University
+        location: Big Town
+        degree: MSc in Computer Science
+        gpa: -
+        tags:
+          - software
+      - degree 2:
+        start_date: 1995
+        end_date: 2000
+        institution: The Fair University
+        location: Small Town
+        degree: BSc in Computer Engineering
+        gpa: -
+        tags:
+          - software
+          - hardware
+  - skills:
+    template: skills_template.ms
+    data:
+      - Python:
+        tags:
+          - software
+      - C:
+        tags:
+          - software
+          - hardware
+      - C++:
+        tags:
+          - software
+          - hardware
+      - PCB:
+        tags:
+          - hardware
+      - Altium:
+        tags:
+          - hardware
+      - SPICE:
+        tags:
+        - hardware

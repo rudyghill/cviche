@@ -1,40 +1,39 @@
 import argparse
-import utilities
 import sys
-
 from pathlib import Path
+from pprint import pprint
 
 # import json
 # print(json.dumps(master)) #can dump into a json file later
+import utilities
 
 
-def experience(template: Path, csv: Path, tag) -> str:
-    master = utilities.csv_to_table(csv)
-    selected = utilities.filter_by_key(master, "tag", tag)
-    replacements = selected[0]
-    return utilities.replace_placeholders(template, replacements)
+def yaml_test(config: Path, tag: str):
+    processed_config = utilities.process_config(config)
+    master_template = processed_config["template"]
+    output_filename = processed_config["output"]
+    sections = processed_config["sections"]
 
+    processed_sections = {}
+    for section in sections:
+        selected = utilities.filter_by_key(sections[section]["csv"], "tag", tag)
+        output = ""
+        for line in selected:
+            output += utilities.replace_placeholders(
+                sections[section]["template"], line
+            )
+        processed_sections[section] = output
 
-def education():
-    return
+    output_text = utilities.replace_placeholders(master_template, processed_sections)
+    utilities.write_file(output_filename, output_text)
 
-
-def skills(filename, tag):
-    master = utilities.csv_to_table(filename)
-    return utilities.select_values_with_tag(master, "skill", "tags", tag)
+    return output_text
 
 
 def _get_arg_parser():
     parser = argparse.ArgumentParser(description="generate a resume")
-    parser.add_argument(
-        "-m",
-        "--mode",
-        help="mode to change behavior",
-        choices=["exp", "edu", "skl"],
-        required=True,
-    )
-    parser.add_argument("-c", "--csv", help="csv file to read", required=True)
     parser.add_argument("-t", "--tag", help="tag to filter on", required=True)
+    parser.add_argument("-y", "--yaml", help="yaml file to take in")
     return parser
 
 
@@ -46,15 +45,9 @@ def main():
     parser = _get_arg_parser()
     args = parser.parse_args()
 
-    if args.mode == "exp":
-        template = sys.stdin.read()
-        modified_document = experience(template, args.csv, args.tag)
-        sys.stdout.write(modified_document)
-    elif args.mode == "edu":
-        education()
-    elif args.mode == "skl":
-        selected = skills(args.csv, args.tag)
-        print(*selected, sep=", ")
+    if args.yaml:
+        output = yaml_test(args.yaml, args.tag)
+        # sys.stdout.write(output)
     else:
         ("Invalid argument")
 

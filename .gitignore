@@ -1,4 +1,6 @@
 *.csv
-!example/*.csv
+!example/*/*.csv
 .venv
 __pycache__
+
+example/files/output/*

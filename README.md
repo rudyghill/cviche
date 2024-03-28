@@ -4,18 +4,11 @@ You have many skills. Your resume/CV is limited in space and attention. Tag your
 Pronounced like "ceviche". Credit to [Philip Massouh](https://github.com/philipmassouh) for the name.
 
 ## For users
-This is a WIP. Basically notes right now.
-```sh
-python3 cviche.py -m skl -c example/skills.csv -t libre
-```
+This is a WIP. Basically notes right now. (As I experiment this will not work).
 
-For experience templating
+within "files"
 ```sh
-python3 cviche.py -m exp -c example/experience.csv -t software < example/experience_template.ms
-```
-### MacOS
-```sh
-python3 cviche.py -m skl -c example/skills.csv -t libre | pbcopy
+python3 ../../cviche.py -t hardware -y config.yaml && groff -ms -t -T pdf output/resume.ms > output/resume.pdf
 ```
 ### Linux
 ``TODO``
